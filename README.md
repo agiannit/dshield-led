@@ -1,5 +1,6 @@
-# pihole-led
-## Realtime LED alerts when an ad is blocked when using pi-hole.
+# dshield-led
+## LED alerts for DShield honeypot on incoming Telnet, SSH or HTTP connections
+## Based off work of dstinebaugh/pihole-led
 
 pihole-led.sh will parse /var/log/pihole.log for the string "/etc/pihole/gravity.list" and if found it will set gpio header pin 11 (wiringpi pin 0) to high (on) briefly then turn it back off making it blink once for each entry found in near realtime.
 
@@ -13,4 +14,5 @@ I have now also included a startup script to launch the pihole-led.sh script on 
 
 The startup script will launch a new screen session named "blink" so the screen package is also required to be installed. (It's in your repos most likely) 
 
+Link no longer works, but leaving this in here -- credit due
 Attribution and more info: http://www.stinebaugh.info/get-led-alerts-for-each-blocked-ad-using-pi-hole/
