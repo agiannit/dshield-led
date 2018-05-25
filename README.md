@@ -1,17 +1,26 @@
 # dshield-led
-## LED alerts for DShield honeypot on incoming Telnet, SSH or HTTP connections
-## Based off code of dstinebaugh/pihole-led
-## WIP -- just figuring things out, which logs to process, etc.
+## Realtime LED alerts for DShield Honeypot on incoming telnet, SSH or HTTP for Raspberry Pi.
+## Based off code/work of dstinebaugh/pihole-led
 
-dshield-led.sh will parse TBD for the string "TBD" and if found it will set gpio header pin 11 (wiringpi pin 0) to high (on) briefly then turn it back off making it blink once for each entry found in near realtime.
+dshield-led.sh will parse /var/log/dshield.log for the strings "DPT=23", "DPT=22" and "DPT=80" and flash a Red, Yellow or Green LED respectively
 
 *Requires ([wiringPi](http://wiringpi.com/)) to be installed*
 
-Comment out the echo line 25 in the loop if you don't want textual updates to the terminal.
+Original dstinebaugh/pihole-led project included nearly everything you see here (the base script and the startup script); I just changed the log file that is parges, and added two more LEDs, because who doesn't like blinky lights?
 
-I have now also included a startup script to launch the pihole-led.sh script on boot. Just edit the values in the Setting block and include it's location to your /etc/rc.local file.
+Original author also included a startup script to launch his pihole-led.sh script on boot.  I have not modified it, and included it here. 
 
-The startup script will launch a new screen session named "blink" so the screen package is also required to be installed. (It's in your repos most likely) 
+From the author:
 
-Link no longer works, but leaving this in here to credit original author
-Attribution and more info: http://www.stinebaugh.info/get-led-alerts-for-each-blocked-ad-using-pi-hole/
+"Just edit the values in the Setting block and include it's location to your /etc/rc.local file.
+
+The startup script will launch a new screen session named "blink" so the screen package is also required to be installed. (It's in your repos most likely)" 
+
+I removed the original attribution URL since it was no longer active.
+
+Attribution and more info: dstinebaugh/pihole-led
+
+## Todos
+- create a bill of materials and schematic
+- create installation instructions
+- currently, the script is parsing /var/log/dshield.log file for incoming ports that match 22, 23 and 80.  I eventually want to parse the Cowrie and web honeypot logs/data to blink and LED when incoming connections are detected
