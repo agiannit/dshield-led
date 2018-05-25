@@ -24,6 +24,7 @@ http://www.icstation.com/traffic-light-display-module-green-yellow-light-arduino
 
 
 ## Todos
+- script seemed to exit after about 30 min to 1 hour several times the other day, but hasn't happened since.  Was thinking related to cronjob upload of dshield.log files.  Need to investigate further
 - create a parts list/schematic; 
 - create installation instructions (for wiringpi, git clone of repo, etc.)
 - currently, the script is parsing /var/log/dshield.log file for incoming ports that match 22, 23 and 80.  I eventually want to parse the cowrie and web honeypot logs/data to blink and LED when incoming connections are detected
